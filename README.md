@@ -17,10 +17,11 @@ There is an included Dockerfile which can be used to create images with Alpine L
 ### Planned
 
   - Persisting settings to a location
-  - Correct database session control
-  - Creation of tables (support for text, number, date, timestamp types)
+  - Add database connection
+  - Add table (support for text, number, date, timestamp types and PKs)
   - Adding columns
   - Removing colums
+  - Adding Indexes
 
 ### Long-term plans
 
