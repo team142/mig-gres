@@ -4,7 +4,7 @@ The goal of this project is to build a tiny drop-in Java service that will be ab
 
 ## Development
 
-The project uses maven to handle dependencies and is currently running in Java 8.
+The project uses maven to handle dependencies.
 
 Run `mvn clean install` and run against a Java web container.
 
@@ -32,7 +32,7 @@ There is an included Dockerfile which can be used to create images with Alpine L
 
   - **Java 8**
   - **Jetty**
-  - **Apline Linux**
+  - **Alpine Linux**
 
 
 
