@@ -10,16 +10,9 @@ Run `mvn clean install` and run against a Java web container.
 
 There is an included Dockerfile which can be used to create images with Alpine Linux, Java 8 and Jetty 9.4. 
 
-## Features
+## Progress
 
 ### Completed
-
-
-### Next to be implemented
-
-  - Insert new row
-  - Simple queries (AND only)
-
 
 ### Planned
 
