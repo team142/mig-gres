@@ -1,4 +1,4 @@
-# Postgresmigs - A drop-in postgresql schema migrator
+# Mig-Gres - A drop-in postgresql schema migrator
 
 The goal of this project is to build a tiny drop-in Java service that will be able to update a Postgresql schema. 
 
