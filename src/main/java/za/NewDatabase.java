@@ -12,18 +12,24 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import za.model.DatabaseConnectionDetail;
 
 /**
  *
  * @author just1689
  */
 @WebServlet(urlPatterns = {"/NewDatabase"})
-public class NewDatabase extends SmartServlet {
+public class NewDatabase extends SmartServlet<DatabaseConnectionDetail> {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
+        
+        DatabaseConnectionDetail post = convertPostToObject(request, DatabaseConnectionDetail.class);
+        try (PrintWriter writer = response.getWriter()) {
+            writer.println(post);
+        }
         
         
     }
@@ -32,9 +38,9 @@ public class NewDatabase extends SmartServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        PrintWriter writer = response.getWriter();
-        writer.println("Hi from NewDatabase servlet");
-        writer.close();
+        try (PrintWriter writer = response.getWriter()) {
+            writer.println("Hi from NewDatabase servlet");
+        }
         
     }
 
