@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.util.stream.Collectors;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
+import za.system.Startup;
 
 /**
  *
@@ -27,6 +28,11 @@ public class SmartServlet<T> extends HttpServlet {
     public final ObjectMapper OBJECT_MAPPER;
 
     public SmartServlet() {
+        
+        if (!Startup.STARTED.get()) {
+            Startup.startup();
+        }
+        
         OBJECT_MAPPER = new ObjectMapper();
         OBJECT_MAPPER.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
         OBJECT_MAPPER.setVisibilityChecker(VisibilityChecker.Std.defaultInstance().withFieldVisibility(JsonAutoDetect.Visibility.ANY));
