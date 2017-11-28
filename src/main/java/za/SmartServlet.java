@@ -28,28 +28,33 @@ public class SmartServlet<T> extends HttpServlet {
     public final ObjectMapper OBJECT_MAPPER;
 
     public SmartServlet() {
-        
+
         if (!Startup.STARTED.get()) {
             Startup.startup();
         }
-        
+
         OBJECT_MAPPER = new ObjectMapper();
         OBJECT_MAPPER.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
         OBJECT_MAPPER.setVisibilityChecker(VisibilityChecker.Std.defaultInstance().withFieldVisibility(JsonAutoDetect.Visibility.ANY));
-
         OBJECT_MAPPER.setPropertyNamingStrategy(new MyPropertyNamingStrategy());
         OBJECT_MAPPER.enable(SerializationFeature.INDENT_OUTPUT);
 
     }
 
+    public String getPostBodyAsString(HttpServletRequest request) throws IOException {
+        return request.getReader().lines().collect(Collectors.joining());
+
+    }
+
     public T convertPostToObject(HttpServletRequest request, Class clazz) throws IOException {
-        String body = request.getReader().lines().collect(Collectors.joining());
-        T t = (T) new Object();
+        String body = getPostBodyAsString(request);
         return (T) OBJECT_MAPPER.readValue(body, clazz);
+
     }
 
     public String convertObjectToString(Object o) throws JsonProcessingException {
         return OBJECT_MAPPER.writeValueAsString(o);
+
     }
 
     private static class MyPropertyNamingStrategy extends PropertyNamingStrategy.PropertyNamingStrategyBase {
