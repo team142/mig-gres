@@ -18,8 +18,8 @@ import za.model.DatabaseConnectionDetail;
  *
  * @author just1689
  */
-@WebServlet(urlPatterns = {"/NewDatabase"})
-public class NewDatabase extends SmartServlet<DatabaseConnectionDetail> {
+@WebServlet(urlPatterns = {"/NewConnection"})
+public class NewConnection extends SmartServlet<DatabaseConnectionDetail> {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -39,7 +39,7 @@ public class NewDatabase extends SmartServlet<DatabaseConnectionDetail> {
             throws ServletException, IOException {
 
         try (PrintWriter writer = response.getWriter()) {
-            writer.println("Hi from NewDatabase servlet");
+            writer.println("Hi from NewConnection servlet");
         }
         
     }

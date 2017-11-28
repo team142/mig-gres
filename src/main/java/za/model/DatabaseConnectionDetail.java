@@ -32,4 +32,12 @@ public class DatabaseConnectionDetail {
     @Setter
     private String password;
     
+    @Getter
+    @Setter
+    private String project;
+    
+    @Getter
+    @Setter
+    private String environment;
+    
 }
