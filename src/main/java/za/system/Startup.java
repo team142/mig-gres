@@ -5,6 +5,7 @@
  */
 package za.system;
 
+import java.io.File;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
@@ -25,7 +26,21 @@ public class Startup {
             System.exit(1);
             return;
         }
+        checkSettings();
         STARTED.set(true);
+        
+    }
+
+    private static void checkSettings() {
+        
+        //Check if folder exists
+        File folder = new File(Repository.MIG_GRES_PATH);
+        if (!folder.exists()) {
+            System.err.println("Could not find FOLDER in " + MIG_GRES_PATH_KEY + " environment variable: " + Repository.MIG_GRES_PATH);
+            System.exit(1);
+            
+        }
+        
         
     }
     

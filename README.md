@@ -6,6 +6,8 @@ The goal of this project is to build a tiny drop-in Java service that will be ab
 
 The project uses maven to handle dependencies.
 
+Create an environment variable called `MIG_GRES_PATH` that points to a directory for persistence.
+
 Run `mvn clean install` and run against a Java web container.
 
 There is an included Dockerfile which can be used to create images with Alpine Linux, Java 8 and Jetty 9.4. 
