@@ -2,6 +2,9 @@
 
 The goal of this project is to build a tiny drop-in Java service that will be able to update a Postgresql schema. 
 
+![Logo](docs/logo.jpg "Logo")
+
+
 ## Development
 
 The project uses maven to handle dependencies.
