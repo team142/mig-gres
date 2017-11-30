@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package za;
+package za.endpoints;
 
 
 import java.io.IOException;
@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import za.model.DatabaseConnectionDetail;
+import za.system.SmartServlet;
 
 /**
  *
